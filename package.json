@@ -1,0 +1,38 @@
+{
+  "name": "ks-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 3003 --host",
+    "build": "tsc && vite build",
+    "preview": "vite preview --port 3003"
+  },
+  "dependencies": {
+    "@paper-design/shaders-react": "^0.0.76",
+    "@radix-ui/react-slot": "^1.2.4",
+    "@react-three/fiber": "^8.18.0",
+    "axios": "^1.6.8",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.1.7",
+    "gsap": "^3.15.0",
+    "lucide-react": "^0.378.0",
+    "next-themes": "^0.4.6",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "socket.io-client": "^4.8.3",
+    "tailwind-merge": "^3.6.0",
+    "three": "^0.184.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.0",
+    "@types/three": "^0.184.1",
+    "@vitejs/plugin-react": "^4.2.1",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.11"
+  }
+}

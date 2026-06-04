@@ -1,0 +1,452 @@
+@import "tailwindcss";
+
+@theme inline {
+  --radius-none: 0px;
+  --radius-xs: 0.125rem;
+  --radius-default: 0.375rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 1.875rem;
+  --radius-full: 9999px;
+  --color-button-ripple-color: var(--button-ripple-color);
+}
+
+:root {
+  --button-ripple-color: oklch(0.145 0 0 / 0.3);
+}
+
+.dark {
+  --button-ripple-color: oklch(0.985 0 0 / 0.5);
+}
+
+:root {
+  --font-heading: 'Clash Display', sans-serif;
+  --font-body: 'Satoshi', sans-serif;
+  --color-accent-1: #8B5CF6; /* Purple */
+  --color-accent-2: #06B6D4; /* Blue */
+  --bg-primary: #03000a;
+  --text-primary: #FFFFFF;
+  --text-secondary: #B8B8C2;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Utility Classes */
+.heading-font {
+  font-family: var(--font-heading);
+}
+
+.body-font {
+  font-family: var(--font-body);
+}
+
+/* Atmospheric Ambient Star/Dot System */
+.atmospheric-stars {
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    radial-gradient(circle at 75% 15%, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    radial-gradient(circle at 90% 65%, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 300px 300px;
+}
+
+/* Premium Cinematic Containers */
+.glass-card {
+  background: rgba(8, 12, 20, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 0 0 1px rgba(255, 255, 255, 0.02),
+    0 10px 40px rgba(0, 0, 0, 0.45);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-hover:hover {
+  background: rgba(8, 12, 20, 0.85);
+  border-color: rgba(94, 238, 255, 0.25);
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 
+    0 0 30px rgba(94, 238, 255, 0.15),
+    0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+.glass-card-blue-hover:hover {
+  background: rgba(8, 12, 20, 0.85);
+  border-color: rgba(6, 182, 212, 0.25);
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 
+    0 0 30px rgba(6, 182, 212, 0.15),
+    0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+/* Perfect Typography System Classes */
+.main-heading {
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.subheading-text {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.meta-text {
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.18em;
+  font-family: var(--font-heading);
+}
+
+.metric-highlight {
+  color: #5eeeff;
+  text-shadow: 0 0 12px rgba(94, 238, 255, 0.45);
+}
+
+
+/* Delicate interactive custom borders */
+.interactive-glow-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.interactive-glow-border::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.05), transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+/* Gentle keyframe animations */
+@keyframes slow-float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes slow-float-reverse {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(8px) rotate(-1deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.float-slow {
+  animation: slow-float 8s ease-in-out infinite;
+}
+
+.float-slow-reverse {
+  animation: slow-float-reverse 9s ease-in-out infinite;
+}
+
+/* Premium Marquee Loop */
+@keyframes marquee-scroll-loop {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-container {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
+}
+
+.marquee-content {
+  display: flex;
+  gap: 2rem;
+  padding: 0.5rem 0;
+  animation: marquee-scroll-loop 30s linear infinite;
+  white-space: nowrap;
+  width: max-content;
+}
+
+.marquee-container:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+/* Glowing Hologram Spins */
+@keyframes spin-clockwise {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes spin-counterclockwise {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.spin-slow {
+  animation: spin-clockwise 25s linear infinite;
+}
+
+.spin-reverse-slow {
+  animation: spin-counterclockwise 35s linear infinite;
+}
+
+.spin-medium {
+  animation: spin-clockwise 15s linear infinite;
+}
+
+/* Cyber Scanline Grid Overlay */
+.cyber-scanlines {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  ), linear-gradient(
+    90deg, 
+    rgba(255, 0, 0, 0.03), 
+    rgba(0, 255, 0, 0.01), 
+    rgba(0, 0, 255, 0.03)
+  );
+  background-size: 100% 4px, 6px 100%;
+}
+
+
+/* Premium Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.3);
+}
+
+/* Horizontal timelines */
+.timeline-dot {
+  position: relative;
+}
+.timeline-dot::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: var(--color-accent-1);
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px var(--color-accent-1);
+}
+
+/* ========================================================
+   MOVING DOT CARD LASER BORDER ANIMATION SYSTEM
+   ======================================================== */
+@keyframes moveDot {
+  0%, 100% {
+    top: 3px;
+    left: 3px;
+  }
+  25% {
+    top: 3px;
+    left: calc(100% - 10px);
+  }
+  50% {
+    top: calc(100% - 10px);
+    left: calc(100% - 10px);
+  }
+  75% {
+    top: calc(100% - 10px);
+    left: 3px;
+  }
+}
+
+.outer {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 1px;
+  background: rgba(255, 255, 255, 0.04);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+}
+
+.outer:hover {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 0 35px rgba(94, 238, 255, 0.15),
+    0 15px 40px rgba(0, 0, 0, 0.55);
+  transform: translateY(-4px) scale(1.005);
+}
+
+.dot {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #a78bfa;
+  box-shadow: 
+    0 0 10px #a78bfa, 
+    0 0 20px #22d3ee;
+  z-index: 10;
+  pointer-events: none;
+  animation: moveDot 6s linear infinite;
+}
+
+/* Custom variations for capability cards */
+.outer-frontend .dot {
+  background: #38bdf8;
+  box-shadow: 0 0 10px #38bdf8, 0 0 20px #38bdf8;
+  animation-duration: 5s;
+}
+
+.outer-backend .dot {
+  background: #a855f7;
+  box-shadow: 0 0 10px #a855f7, 0 0 20px #a855f7;
+  animation-duration: 5.5s;
+}
+
+.outer-design .dot {
+  background: #ec4899;
+  box-shadow: 0 0 10px #ec4899, 0 0 20px #ec4899;
+  animation-duration: 5s;
+}
+
+.outer-problem .dot {
+  background: #f97316;
+  box-shadow: 0 0 10px #f97316, 0 0 20px #f97316;
+  animation-duration: 6s;
+}
+
+.card {
+  position: relative;
+  background: rgba(8, 12, 20, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 19px;
+  padding: 24px;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ray {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.text {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  font-family: var(--font-heading);
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 4px;
+  font-family: var(--font-body);
+}
+
+/* Subtle line accents inside the card for premium structure */
+.line {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.02);
+  pointer-events: none;
+}
+
+.topl {
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  height: 1px;
+}
+
+.leftl {
+  top: 10px;
+  bottom: 10px;
+  left: 10px;
+  width: 1px;
+}
+
+.bottoml {
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  height: 1px;
+}
+
+.rightl {
+  top: 10px;
+  bottom: 10px;
+  right: 10px;
+  width: 1px;
+}
+
+/* ========================================================
+   RAINBOW GLOW CARD STYLING & ANIMATIONS
+   ======================================================== */
+@keyframes rainbow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-rainbow {
+  animation: rainbow 3s linear infinite !important;
+  background-size: 200% 200% !important;
+}
+
+.rainbow-card-active {
+  position: relative;
+  background: 
+    linear-gradient(#080c14, #080c14) padding-box,
+    linear-gradient(90deg, hsl(0,100%,63%), hsl(90,100%,63%), hsl(210,100%,63%), hsl(195,100%,63%), hsl(270,100%,63%)) border-box !important;
+  background-size: 200% 200% !important;
+  background-origin: border-box !important;
+  border: 1px solid transparent !important;
+  animation: rainbow 4s linear infinite !important;
+  z-index: 10;
+  transform: scale(1.025);
+  box-shadow: 0 0 25px rgba(255, 100, 100, 0.15) !important;
+}
+
+.rainbow-card-active::before {
+  content: "" !important;
+  position: absolute !important;
+  bottom: -15% !important;
+  left: 15% !important;
+  right: 15% !important;
+  height: 20% !important;
+  z-index: -1 !important;
+  background: linear-gradient(90deg, hsl(0,100%,63%), hsl(90,100%,63%), hsl(210,100%,63%), hsl(195,100%,63%), hsl(270,100%,63%)) !important;
+  background-size: 200% 200% !important;
+  filter: blur(16px) !important;
+  opacity: 0.85 !important;
+  border-radius: 99px !important;
+  animation: rainbow 4s linear infinite !important;
+  pointer-events: none !important;
+}

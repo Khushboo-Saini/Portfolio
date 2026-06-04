@@ -150,7 +150,7 @@ export default function App() {
   ];
   const activeSocialLinks = rawSocialLinks.filter((item: any) => item.enabled);
 
-  const rawVideoUrl = profile?.themeSection?.visualIdentity?.videoBackground?.videoUrl || "/khushboo-trim.mp4";
+  const rawVideoUrl = profile?.themeSection?.visualIdentity?.videoBackground?.videoUrl || "/khushboo.mp4";
   const videoUrl = rawVideoUrl.startsWith('/uploads') ? `http://localhost:5000${rawVideoUrl}` : rawVideoUrl;
   const overlayDarkness = profile?.themeSection?.visualIdentity?.overlayControl?.darkness ?? 75;
   const overlayBlur = profile?.themeSection?.visualIdentity?.overlayControl?.blur ?? 0;
